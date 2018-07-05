@@ -10,5 +10,12 @@ public interface UserService {
 	
 	List<UserInfo> getUserList(UserInfo userInfo);
 	
+	UserInfo getUser(String user_id);
+	
+	int insertUser(UserInfo userInfo);
+	
+	int updateUser(UserInfo userInfo);
+	
+	int deleteUser(String user_id);
 	
 }

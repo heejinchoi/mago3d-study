@@ -20,7 +20,7 @@
 					<th>아이디</th> 
 					<th>이름</th> 
 					<th>등록일</th>
-					<th>거주지</th>
+					<th>국가</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr> 
@@ -28,18 +28,19 @@
 		<tbody> 
 			<c:forEach var="user" items="${userList}">
 				<tr>
-					<td>${user.user_id }</td>
+					<td><a href="user-detail.do?user_id=${user.user_id}">${user.user_id }</a></td>
 					<td>${user.password }</td>
 					<td>${user.insert_date }</td>
-					<td>${user.city }</td>
-					<td><a href="updateUserForm.do?id=${user.user_id}">수정</a>
+					<td>${user.country }</td>
+					<td><a href="user-update-form-old.do?user_id=${user.user_id}">수정</a>
+<%-- 					<td><a href="update-user-form.do?user_id=${user.user_id}">수정</a> --%>
 					</td>
-					<td><a href="deleteUser.do/${user.user_id}">삭제</a></td>
+					<td><a href="delete-user.do?user_id=${user.user_id}">삭제</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td colspan="7">
-					<a href="insertUserForm.do">사용자 등록</a>
+					<a href="user-insert-form.do">사용자 등록</a>
 				</td>
 			</tr>
 		</tbody> 

@@ -1,6 +1,10 @@
 package com.example.demo;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,33 +32,41 @@ public class Mago3dStudyApplicationTests {
 		System.out.println("sqlSession : " + sqlSession);
 	}
 	
-	@Test @Ignore
+	@Before
 	public void testInsert() {
+		System.out.println("@Before: Insert 실행");
 		UserInfo user = new UserInfo();
-		user.setUser_id("ccc");
-		user.setPassword("ccc");
-		user.setSalt("ccc");
-		user.setName("ccc");
-		user.setCountry("영국");
+		user.setUser_id("test");
+		user.setPassword("test");
+		user.setSalt("test");
+		user.setName("test");
+		user.setCountry("대한민국");
 		userService.insertUser(user);
 		UserInfo user2 = userService.getUser("test");
-		System.out.println("userInfo: " + user);
-		System.out.println("userInfo2: " + user2);
+		System.out.println("@@ userInfo: " + user);
+		System.out.println("@@ insert- userInfo: " + user2);
 	}
 	
-	@Test 
+	@Test
 	public void testUpdate() {
 		UserInfo user = new UserInfo();
-		user = userService.getUser("ccc");
+		user = userService.getUser("test");
 		System.out.println("@@ userInfo: " + user);
-		user.setPassword("rrr");
-		user.setSalt("rrr");
-		user.setName("rrr");
-		user.setCountry("아일랜드");
+		user.setPassword("aaa");
+		user.setSalt("aaa");
+		user.setName("aaa");
+		user.setCountry("폴란드");
 		userService.updateUser(user);
-		UserInfo user2 = userService.getUser("ccc");
+		UserInfo user2 = userService.getUser("test");
 		System.out.println("@@ update - userInfo: " + user2);
 		
+	}
+	
+	@After
+	public void testDelete() {
+		System.out.println("@After: Delete 실행");
+		userService.deleteUser("test");
+		assertThat(userService.getUser("test")).isNull();
 	}
 
 }

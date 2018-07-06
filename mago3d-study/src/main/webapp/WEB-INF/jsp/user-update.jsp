@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>»ç¿ëÀÚ Á¤º¸ µî·Ï</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ì‚¬ìš©ìž ì •ë³´ ë“±ë¡</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -14,17 +13,17 @@
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-center">»ç¿ëÀÚ Á¤º¸ ¼öÁ¤</h2>
+		<h2 class="text-center">ì‚¬ìš©ìž ì •ë³´ ìˆ˜ì •</h2>
 		<div>
-			<form:form id="userList" modelAttribute="userList" method="post" action="user-update-old.do"  >
+			<form:form id="userList" modelAttribute="userList" method="post" action="user-update.do"  >
 			<form:hidden path="user_id"/>
 				<table  class="table table-bordered table table-hover">
 					<tr>
-						<td>¾ÆÀÌµð </td>
-						<td><form:input type="text" path="user_id"  /></td>
+						<td>ì•„ì´ë”” </td>
+						<td>${userList.user_id }</td>
 					</tr>
 					<tr>
-						<td>ºñ¹Ð¹øÈ£ </td>
+						<td>ë¹„ë°€ë²ˆí˜¸ </td>
 						<td><form:input type="text" path="password" /></td>
 					</tr>
 					<tr>
@@ -32,11 +31,11 @@
 						<td><form:input type="text" path="salt" /></td>
 					</tr>
 					<tr>
-						<td>ÀÌ¸§ </td>
+						<td>ì´ë¦„ </td>
 						<td><form:input type="text" path="name" /></td>
 					</tr>
 					<tr>
-						<td>±¹°¡ </td>
+						<td>êµ­ê°€ </td>
 						<td>
 <%-- 							<select name="country">
 								<c:forEach var="country" items="${countryList.country}">
@@ -47,10 +46,10 @@
 					</tr>
 					<tr>
 					<td colspan="2"  class="text-center">
-						<input type="submit" value="¼öÁ¤" /></td>
+						<input type="submit" value="ìˆ˜ì •" /></td>
 					</tr>
 					<tr>					
-						<td colspan="2" class="text-center"><a href="user-list.do">¸ñ·Ï</a></td>
+						<td colspan="2" class="text-center"><a href="user-list.do">ëª©ë¡</a></td>
 					</tr>
 				</table>
 			</form:form>

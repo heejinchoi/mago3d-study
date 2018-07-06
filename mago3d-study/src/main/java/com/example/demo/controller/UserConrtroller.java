@@ -86,7 +86,7 @@ public class UserConrtroller {
 	}
 	
 	/* 커스텀 태그를 사용하지 않는 방식 */
-	@GetMapping("user-update-form-old.do")
+	@GetMapping("user-update-form.do")
 	public String updateUserForm(@RequestParam("user_id") String user_id, @ModelAttribute("userList")UserInfo userInfo, Model model) {
 		log.info("@@@@@@@@@@ user_id = " + user_id);
 		userInfo  = userService.getUser(user_id);
@@ -95,23 +95,27 @@ public class UserConrtroller {
 		model.addAttribute("user", userInfo);
 		model.addAttribute("user_id", userInfo.getUser_id());
 		
-		return "user-update-old";
+		return "user-update";
 	}
 	
-	@PostMapping("user-update-old.do")
-	public String updateUser(HttpServletRequest req, @RequestParam("user_id") String user_id, Model model) {
+	@PostMapping("user-update.do")
+	public String updateUser(HttpServletRequest req, @RequestParam("user_id")String user_id, Model model) {
+		log.info("@@@@ userID--" + user_id);
 		UserInfo userInfo = new UserInfo();
+		userInfo = userService.getUser(user_id);
+		log.info("@@@@ userInfo = {}" + userInfo);
+		
 		String password = req.getParameter("password");
 		String salt = req.getParameter("salt");
 		String name = req.getParameter("name");
-		userInfo.setUser_id(user_id);
 		userInfo.setPassword(password);
 		userInfo.setSalt(salt);
 		userInfo.setName(name);
 		
 		userService.updateUser(userInfo);
-		log.info("@@@@ userInfo = {}" + userInfo);
-		userInfo = userService.getUser(user_id);
+		log.info("@@@@ userInfo11 = {}" + userInfo);
+		UserInfo user2 = userService.getUser("user_id");
+		log.info("@@@@ userInfo22 = {}" + user2);
 		
 		model.addAttribute("user", userInfo);
 		

@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>»ç¿ëÀÚ ¸ñ·Ï Á¶È¸</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -13,14 +12,14 @@
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-center">»ç¿ëÀÚ ¸ñ·Ï</h2>
+		<h2 class="text-center">ì‚¬ìš©ì ëª©ë¡</h2>
 		<table class="table table-bordered table table-hover"> 
 			<thead> 
 				<tr> 
-					<th>¾ÆÀÌµğ</th> 
-					<th>ÀÌ¸§</th> 
-					<th>µî·ÏÀÏ</th>
-					<th>±¹°¡</th>
+					<th>ì•„ì´ë””</th> 
+					<th>ì´ë¦„</th> 
+					<th>ë“±ë¡ì¼</th>
+					<th>êµ­ê°€</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr> 
@@ -32,15 +31,15 @@
 					<td>${user.password }</td>
 					<td>${user.insert_date }</td>
 					<td>${user.country }</td>
-					<td><a href="user-update-form-old.do?user_id=${user.user_id}">¼öÁ¤</a>
-<%-- 					<td><a href="update-user-form.do?user_id=${user.user_id}">¼öÁ¤</a> --%>
+					<td><a href="user-update-form.do?user_id=${user.user_id}">ìˆ˜ì •</a>
+<%-- 					<td><a href="update-user-form.do?user_id=${user.user_id}">ìˆ˜ì •</a> --%>
 					</td>
-					<td><a href="delete-user.do?user_id=${user.user_id}">»èÁ¦</a></td>
+					<td><a href="delete-user.do?user_id=${user.user_id}">ì‚­ì œ</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td colspan="7">
-					<a href="user-insert-form.do">»ç¿ëÀÚ µî·Ï</a>
+					<a href="user-insert-form.do">ì‚¬ìš©ì ë“±ë¡</a>
 				</td>
 			</tr>
 		</tbody> 
